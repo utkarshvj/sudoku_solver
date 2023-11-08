@@ -1,15 +1,28 @@
-name: Lint Checker
-on: [pull_request]
+name: Lint
+
+on: push
 
 jobs:
-  build:
+  run-linters:
+    name: Run linters
     runs-on: ubuntu-latest
-    name: Lint Checker
+
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-python@v2
-      with:
-        python-version: 3.x
-    - run: pip install --upgrade pip
-    - run: pip install pylint==v3.0.0a3
-    - run: pylint --disable=all --enable=unused-import $(git ls-files '*.py')
+      - name: Check out Git repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.8
+
+      - name: Install Python dependencies
+        run: pip install black flake8
+
+      - name: Run linters
+        uses: wearerequired/lint-action@v1
+        with:
+          github_token: ghs_PZFgSveB7h9F4ppu129wj7k7cvVCNr3zHQNN
+          # Enable linters
+          black: true
+          flake8: true
