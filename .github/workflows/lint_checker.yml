@@ -1,16 +1,28 @@
-name: GitHub Action for pylint
-on: [pull_request]
+name: Lint
+
+on: push
 
 jobs:
-  build:
+  run-linters:
+    name: Run linters
     runs-on: ubuntu-latest
-    name: GitHub Action for pylint
+
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-python@v2
-      with:
-        python-version: 3.x
-    - uses: cclauss/GitHub-Action-for-pylint@0.7.0
-    - run: pip install --upgrade pip
-    - run: pip install pylint
-    - run: pylint **/*.py
+      - name: Check out Git repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.8
+
+      - name: Install Python dependencies
+        run: pip install black flake8
+
+      - name: Run linters
+        uses: wearerequired/lint-action@v1
+        with:
+          github_token: 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
+          # Enable linters
+          black: true
+          flake8: true
