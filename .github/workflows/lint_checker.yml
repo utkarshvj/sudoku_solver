@@ -1,3 +1,16 @@
-- name: GitHub Action for pylint
-  uses: cclauss/GitHub-Action-for-pylint@0.7.0
-            
+name: GitHub Action for pylint
+on: [pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: GitHub Action for pylint
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-python@v2
+      with:
+        python-version: 3.x
+    - uses: cclauss/GitHub-Action-for-pylint@0.7.0
+    - run: pip install --upgrade pip
+    - run: pip install pylint
+    - run: pylint **/*.py
