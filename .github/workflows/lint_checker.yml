@@ -1,0 +1,15 @@
+name: Lint Checker
+on: [pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Lint Checker
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-python@v2
+      with:
+        python-version: 3.x
+    - run: pip install --upgrade pip
+    - run: pip install pylint==v3.0.0a3
+    - run: pylint --disable=all --enable=unused-import $(git ls-files '*.py')
