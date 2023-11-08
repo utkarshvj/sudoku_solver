@@ -1,3 +1,11 @@
+def test_github_actions():
+    some_dummy_variable_to_check_some_condition = 4
+
+    if some_dummy_variable_to_check_some_condition > 0 and some_dummy_variable_to_check_some_condition < 100 and isinstance(some_dummy_variable_to_check_some_condition, int):
+        print('Hello Testing')
+
+    return
+
 class Solution:
     def __init__(self):
         self.row_dict = {0: [], 1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: []}
