@@ -22,7 +22,7 @@ jobs:
       - name: Run linters
         uses: wearerequired/lint-action@v1
         with:
-          github_token: ghu_mrqhX0xcovzHLc9lGYP30vbZNrFvdO4QOhU1
+          github_token: ghs_PZFgSveB7h9F4ppu129wj7k7cvVCNr3zHQNN
           # Enable linters
           black: true
           flake8: true
