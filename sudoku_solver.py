@@ -2,7 +2,7 @@ def test_github_actions():
     some_dummy_variable_to_check_some_condition = 4
     some_dummy_variable_to_check_some_condition_2 = 7
 
-    if some_dummy_variable_to_check_some_condition > 0 and some_dummy_variable_to_check_some_condition < 100 and isinstance(some_dummy_variable_to_check_some_condition, int):
+    if some_dummy_variable_to_check_some_condition > 0 and some_dummy_variable_to_check_some_condition < 100 and isinstance(some_dummy_variable_to_check_some_condition, int) and some_dummy_variable_to_check_some_condition_2:
         print('Hello Testing Github Actions')
 
     return
